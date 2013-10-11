@@ -1,3 +1,4 @@
+<script type="text/template">
 <div>
 <div class="panel panel-default">	
 	<div class="panel-heading"><img src="{{profilepic}}" alt="profilepic" class="img-rounded"></div>
@@ -10,3 +11,4 @@
 	</div>
 </div>
 </div>
+</script>

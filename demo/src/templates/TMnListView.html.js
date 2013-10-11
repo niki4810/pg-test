@@ -1,3 +1,4 @@
+<script type="text/template">
 <span> 
 {{#each employees}} 
 	<a href="#details/{{name}}/{{title}}/{{location}}/{{reportsTo}}" data-id="{{id}}" class="list-group-item"> 
@@ -8,3 +9,4 @@
 	</a> 
 {{/each}} 
 </span>
+</script>

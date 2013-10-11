@@ -1,3 +1,4 @@
+<script type="text/template">
 <div>
 	<div class="mnNavBar navbar navbar-inverse navbar-fixed-top">
 		
@@ -9,3 +10,4 @@
 	</div>
 
 </div>
+</script>

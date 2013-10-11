@@ -1,3 +1,4 @@
+<script type="text/template">
 <div class="navbar-header">
 	<div>
 		<div class="mnNavBackBtn">
@@ -9,4 +10,5 @@
 		<div class="mnNavSettings"></div>
 	</div>	
 </div>
+</script>
 
