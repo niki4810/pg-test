@@ -1,8 +1,6 @@
-body{
-	background-color:#f5f5f5;
+a.btn-primary{
+	background-color: #4848E2;
 }
-
-
 
 .loadingSpinner{
 	position:absolute;
