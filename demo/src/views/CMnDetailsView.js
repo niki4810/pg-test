@@ -10,21 +10,31 @@ define([
     "underscore",
     "backbone",
     "marionette",
-    "geppetto",
-    "text!src/templates/TMnDetailsView.html"
+    "geppetto"
 ],function(
     $,
     _,
     Backbone,
     Marionette,
-    Geppetto,
-    TMnDetailsView
+    Geppetto
     ){
 
     "use strict";
 
+	var detailViewTemplate = '<div>'+
+	'<div class="panel panel-default">'+	
+	'<div class="panel-heading"><img src="{{profilepic}}" alt="profilepic" class="img-rounded"></div>'+
+	'<div class="panel-body">'+
+		'<h3>{{name}}</h3>'+
+		'<p>{{title}}</p>'+
+		'<p>{{location}}</p>'+
+		'<p>{{reportsTo}}</p>'+
+		'<p><a href="mailto:{{email}}">{{email}}</a></p>'+
+	'</div>'+
+'</div>'+
+'</div>';
     return Marionette.ItemView.extend({
-        template : TMnDetailsView,
+        template : detailViewTemplate,
         initialize : function(){
             _.bindAll(this);
         }

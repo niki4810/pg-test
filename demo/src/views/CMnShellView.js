@@ -4,7 +4,7 @@ define([
 	"backbone", 
 	"marionette",
 	"geppetto", 
-	"text!src/templates/TMnShellView.html",
+	//"text!src/templates/TMnShellView.html",
 	"src/views/CMnNavbar",
 	"src/controller/CMnApplicationContext",
 	"src/utils/CMnPageSlider"
@@ -15,15 +15,26 @@ define([
 		Backbone, 
 		Marionette,
 		Geppetto,
-        TMnShellView,
+      //  TMnShellView,
         CMnNavbar,
         CMnApplicationContext,
         CMnPageSlider) 
 {
+	var shellViewTemplate = '<div>'+
+	'<div class="mnNavBar navbar navbar-inverse navbar-fixed-top">'+
+		
+	'</div>'+
+	'<div class="mainContent container-liquid">'+
+		'<div class="mainPanel">'+
+			
+		'</div>'+
+	'</div>'+
+   '</div>';
 
 	var ContainerView = Marionette.Layout.extend({
 		//set template
-		template : TMnShellView,
+		//template : TMnShellView,
+		template : shellViewTemplate,
 		regions :{
 			"navBar" : ".mnNavBar",
 			"mainContent" : ".mainPanel"
@@ -37,13 +48,15 @@ define([
 			});
 			
 			this.context.listen(this, "loadModule" , this.initModule);
-			this.context.listen(this, "reLoadModule" ,this.reLoadModule);				
+			this.context.listen(this, "reLoadModule" ,this.reLoadModule);
+			
+			this.slider = new CMnPageSlider($('.mainContent'));
 		},
 		onRender : function(){
-			this.slider = new CMnPageSlider(this.$('.mainContent'));
 			this.constructNavBar();
 		},
 		initModule : function(eventData){
+			this.pageLoadStart();
 			var previousTitle = "";
 			if (this.currentView) {
 				var navPaths = this.context.model.get("paths");
@@ -72,11 +85,18 @@ define([
 				context : this.context
 			});
 			
-			this.currentView.eventData = eventData;		
-			// this.currentView.render();
-			// this.slider.slidePage(this.currentView.$el);	
+			this.currentView.eventData = eventData;			
 			this.mainContent.show(this.currentView);	
 			this.context.dispatch("onModuleLoadComplete",eventData);	
+			this.pageLoadComplete();
+		},
+		pageLoadStart :function(){
+			this.$(".mainPanel").hide();
+			$(".loadingSpinner").show();
+		},
+		pageLoadComplete : function(){
+			$(".loadingSpinner").hide();
+			this.$(".mainPanel").show();
 		},
 		constructNavBar : function(){
 			var model = new Backbone.Model({

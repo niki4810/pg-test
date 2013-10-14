@@ -10,20 +10,30 @@ define([
     "underscore",
     "backbone",
     "marionette",
-    "geppetto",
-	"text!src/templates/TMnListView.html"
+    "geppetto"
 ],function(
     $,
     _,
     Backbone,
     Marionette,
-    Geppetto,
-    TMnListView
+    Geppetto
     ){
     "use strict";
+    
+    var listViewTemplate = '<span>'+ 
+'{{#each employees}}'+ 
+	'<a href="#details/{{name}}/{{title}}/{{location}}/{{reportsTo}}" data-id="{{id}}" class="list-group-item">'+ 
+		'<h4 class="list-group-item-heading">{{name}}</h4>'+
+		'<p class="list-group-item-text">'+
+			'{{title}}'+
+		'</p>'+
+	'</a>'+ 
+'{{/each}}'+
+'</span>';
+
     return Marionette.ItemView.extend({
     	className:"list-group",
-		template: TMnListView,
+		template: listViewTemplate,
         initialize : function(){
             _.bindAll(this);
             this.context = this.options.context;

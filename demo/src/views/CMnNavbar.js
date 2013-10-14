@@ -10,20 +10,29 @@ define([
     "underscore",
     "backbone",
     "marionette",
-    "geppetto",
-	"text!src/templates/TMnNavbar.html"
+    "geppetto"
 ],function(
     $,
     _,
     Backbone,
     Marionette,
-    Geppetto,
-    TMnNavbar
+    Geppetto
     ){
     "use strict";
+    var navBarTemplate = '<div class="navbar-header">'+
+	'<div>'+
+		'<div class="mnNavBackBtn">'+
+			'<button class="btn btn-primary" name="backBtn"></button>'+
+		'</div>'+
+		'<div class="mnNavTitle">'+
+			'<label name="pageTitle"></label>'+
+		'</div>'+
+		'<div class="mnNavSettings"></div>'+
+	'</div>'+	
+'</div>';
     return Marionette.ItemView.extend({
-    	className:"container",
-		template: TMnNavbar,
+    	className:"container-liquid",
+		template: navBarTemplate,
 		_modelBinder : undefined,
         initialize : function(){
             _.bindAll(this);

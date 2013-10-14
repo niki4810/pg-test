@@ -4,7 +4,6 @@ define([
     "backbone",
     "marionette",
     "geppetto",
-    "text!src/templates/TMnListContainer.html",
    	"src/views/CMnListView"
 ],function(
     $,
@@ -12,14 +11,18 @@ define([
     Backbone,
     Marionette,
     Geppetto,
-    TMnListContainer,
     CMnListView
     ){
     	
     "use strict";
     
+    var listContainerTemplate = '<div>'+
+		'<div class="listContainer">'+	
+		'</div>'+
+	'</div>';
+    
     return Marionette.Layout.extend({
-        template: TMnListContainer,
+        template: listContainerTemplate,
         regions : {
         	listContainer : ".listContainer"
         },
