@@ -23,7 +23,7 @@ define([
     var listViewTemplate = '<span>'+ 
 '{{#each employees}}'+ 
 	'<a href="#details/{{name}}/{{title}}/{{location}}/{{reportsTo}}" data-id="{{id}}" class="list-group-item">'+ 
-		'<h4 class="list-group-item-heading">{{name}}</h4>'+
+		'<h3 class="list-group-item-heading">{{name}}</h3>'+
 		'<p class="list-group-item-text">'+
 			'{{title}}'+
 		'</p>'+
