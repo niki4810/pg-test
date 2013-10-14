@@ -1,0 +1,40 @@
+body{
+	background-color:#f5f5f5;
+}
+
+
+
+.loadingSpinner{
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-top:-16px;
+	margin-left:-16px;
+}
+.mainContent.container-liquid{
+	margin-top: 65px;
+}
+
+.panel{
+	text-align:center;
+}
+
+
+.mnNavBackBtn, .mnNavTitle, .mnNavSettings {
+	text-align: center;
+	padding: 10px;
+	color: #FFF;
+	float:left;
+}
+
+.mnNavBackBtn,
+.mnNavSettings{
+	width: 10%;
+}
+.mnNavTitle{
+	width:80%;
+}
+
+.mnNavTitle{
+	font-size : 16px;
+}
