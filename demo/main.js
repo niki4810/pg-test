@@ -7,7 +7,7 @@
  */
 "use strict";
 require.config({
-	baseUrl:"http://niki4810.github.io/pg-test/demo",
+	//baseUrl:"http://niki4810.github.io/pg-test/demo",
     paths : {
         "jquery" : "lib/jquery",
         "jqueryui" : "lib/jquery-ui",
