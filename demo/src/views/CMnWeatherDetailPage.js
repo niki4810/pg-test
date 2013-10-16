@@ -24,7 +24,7 @@ define([
 	var detailViewTemplate = '<div>'+
 	'<div class="panel panel-default">'+	
 	'<div class="panel-body">'+
-		'Description: <label name="description"></label><br/>'+
+		'Description: <h1><label name="description"></label></h1><br/>'+
 		'Temperature : <label name="temp"></label><br/>'+
 		'Low: <label name="tempMin"></label><br/>'+
 		'High: <label name="tempMax"></label><br/>'+
