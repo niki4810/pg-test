@@ -1,11 +1,13 @@
 define([
 	'backbone', 
 	'geppetto',
-	'src/commands/CMnGetListCommand'],
+	'src/commands/CMnGetListCommand',
+	'src/commands/CMnGetWeatherCommand'],
 function(
 	Backbone,
 	Geppetto,
-    CMnGetListCommand) {
+    CMnGetListCommand,
+    CMnGetWeatherCommand) {
 
 	//return a geppetto context
 	return Geppetto.Context.extend({
@@ -18,6 +20,7 @@ function(
 			//when ever a "performSearchEvent" is dispatch on this command
 			//the context delegates that call to the SearchMoviesCommand
 			this.mapCommand( "GetListItems"/*event name*/, CMnGetListCommand );
+			this.mapCommand("loadWeatherData",CMnGetWeatherCommand);
 		}
 	});
 })

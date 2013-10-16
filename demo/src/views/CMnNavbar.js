@@ -39,6 +39,22 @@ define([
             this.context = this.options.context;
             this._modelBinder = new Backbone.ModelBinder();
             this.context.listen(this, "onModuleLoadComplete",this.onLoadModule);
+            var that = this;
+            //prevent android default back button behavior
+            document.addEventListener("backbutton", function(e){
+            	var navPaths = that.context.model.get("paths");
+            	if(navPaths.length === 0){
+            		//if we are on home page then we need to close the application if device specific back 
+            		//button is clicked hence we use below code
+            		//see these links : 
+            		//1) http://stackoverflow.com/questions/8602722/phonegap-android-back-button-close-app-with-back-button-on-homepage
+            		//2) http://docs.phonegap.com/en/2.0.0/cordova_events_events.md.html#backbutton
+            		e.preventDefault();  
+            		navigator.app.exitApp();       		
+            	}else{
+            		that.onBackButtonClick();
+            	}
+            }, false);
         },
         events : {
         	'click .mnNavBackBtn button.btn ' : "onBackButtonClick"

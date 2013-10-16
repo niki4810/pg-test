@@ -7,7 +7,7 @@
  */
 "use strict";
 require.config({
-	//baseUrl:"http://niki4810.github.io/pg-test/demo",
+	 baseUrl:"./js",	
     paths : {
         "jquery" : "lib/jquery",
         "jqueryui" : "lib/jquery-ui",
@@ -44,20 +44,10 @@ require.config({
         },
         "lib/jquery.hammer" : {
         	deps : ["jquery"]
-   
-		}
+        }
+		
+    }
 
-		},
-	config: {
-    	'text': 
-    		{ 
-    			useXhr: function (url, protocol, hostname, port) {
-              	//return true if you want to allow this url, given that the
-              	//text plugin thinks the request is coming from protocol,  hostname, port.
-              	return true;
-            	}
-    		}
-  		}
 });
 
 define([
@@ -80,18 +70,19 @@ define([
     Backbone,
     Marionette,
     Geppetto,
-    CMnApp) {
-    $(function() {
-        Backbone.Marionette.TemplateCache.prototype.compileTemplate = function(rawTemplate) {
-            return Handlebars.compile(rawTemplate);
-        };
-
-        $.noConflict(true);
-   		_.noConflict();
-    	Backbone.noConflict();
-
-    	return CMnApp.start();
+    CMnApp) {	
 
 
-    });
+	$(function() {
+
+		Backbone.Marionette.TemplateCache.prototype.compileTemplate = function(rawTemplate) {
+			return Handlebars.compile(rawTemplate);
+		};
+
+		$.noConflict(true);
+		_.noConflict();
+		Backbone.noConflict();
+
+		return CMnApp.start();
+	});
 });

@@ -51,7 +51,14 @@ define([
               }
             });
             
-            var model = new Backbone.Model(employee);
+            var details = _.extend(employee,{});
+            if(device){
+            	details["deviceName"] = device.name;
+            	details["devicePlatform"] = device.platform;
+            	details["deviceUUID"] = device.uuid;
+            	details["deviceVersion"] = device.version;
+            }
+            var model = new Backbone.Model(details);
         	var componentPath = "src/views/CMnDetailsView";
         	var pageTitle = employee.name;			
 			var eventData = {

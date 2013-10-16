@@ -30,6 +30,12 @@ define([
 		'<p>{{location}}</p>'+
 		'<p>{{reportsTo}}</p>'+
 		'<p><a href="mailto:{{email}}">{{email}}</a></p>'+
+		'<h2>Device Details : </h2>'+
+		'<p>Device Name : {{deviceName}}</p>'+
+		'<p>Device platform : {{devicePlatform}}</p>'+
+		'<p>Device UUID : {{deviceUUID}}</p>'+
+		'<p>Device Version : {{deviceVersion}}</p>'+
+		'<p></p>'
 	'</div>'+
 '</div>'+
 '</div>';

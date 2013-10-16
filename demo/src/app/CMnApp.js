@@ -14,9 +14,12 @@ define( [
 ) {
     "use strict";
     
+
+    
     var app = new Marionette.Application();
 
-    app.addInitializer( function ( options ) {  
+    app.addInitializer( function ( options ) {      	
+    	
     	var shellView = new CMnShellView({});
     	$("body" ).append(shellView.render().$el);
     	var eventData = {
@@ -24,8 +27,7 @@ define( [
     		pageTitle : "Home",
     		model : new Backbone.Model()
     	}
-    	shellView.context.dispatch("loadModule",eventData);
-    	    	     	        
+    	shellView.context.dispatch("loadModule",eventData);  	     	        
     } );
     
     return app;
