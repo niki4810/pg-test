@@ -7,7 +7,7 @@
  */
 "use strict";
 require.config({
-	 baseUrl:"./js",	
+	// baseUrl:"./js",	
     paths : {
         "jquery" : "lib/jquery",
         "jqueryui" : "lib/jquery-ui",
