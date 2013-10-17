@@ -7,7 +7,10 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 
 	command.prototype.execute = function() {
 		_.bindAll(this);
-		var that =this;						
+		var that =this;		
+		if(!navigator || navigator.geolocation){
+			alert("please update your application");
+		}		
 		navigator.geolocation.getCurrentPosition(function(data) {
 			var lat = data.coords.latitude;
 			var lon = data.coords.longitude;
