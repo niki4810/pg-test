@@ -75,6 +75,10 @@ define([
 
 	$(function() {
 
+		if(!navigator || navigator.geolocation){
+			alert("please update your application");
+		}
+		
 		Backbone.Marionette.TemplateCache.prototype.compileTemplate = function(rawTemplate) {
 			return Handlebars.compile(rawTemplate);
 		};
